@@ -1,0 +1,14 @@
+<h1>Task List</h1>
+
+<%= link_to 'create task',new_task_path%>
+
+<ul> 
+  <% @tasks.each do |task| %>
+    <li>
+      <span><%= task.title %></span>
+      <span><%= task.content %></span>
+      <span><%= link_to 'Edit', edit_task_path(task), method: 'get' %></span>
+      <span><%= link_to 'Delete', task_path(task.id), method: 'delete', data: {confirm: 'Are you sure?'}%></span>
+    </li>
+  <% end %>
+</ul>
