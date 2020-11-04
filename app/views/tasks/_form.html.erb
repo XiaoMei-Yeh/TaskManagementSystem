@@ -1,5 +1,9 @@
-<% if @task.error? %>
-  <% %>
+<% if task.errors.any? %>
+  <ul>
+    <% task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <%= form_for(task) do |f|  %>
